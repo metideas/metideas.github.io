@@ -1,0 +1,77 @@
+---
+title: Vim 操作快捷键记录
+tags:
+- Vim
+- Tool
+categories:
+- Information Tech
+thumbnail:
+toc: 
+---
+> 记录一下Vim 学习过程中的快捷键    
+
+入门的时候习惯用图形化界面的编辑器, JetBrain 家的产品基本集齐了7颗龙珠了可以召唤神龙了; Atom 则是一开始就接触的, 还有M$家的 visual studio code 等编辑器都用的满顺手, 但是有的时候登录到远程机器或者 Linux 的机器不得不用 Vim 来编辑文件, 这里记录一下基本操作和指令.
+<center>![](https://vim.sexy/img/Vimlogo.svg)</center>
+<!--more-->     
+---     
+- `i` 进入 Insert 模式
+- `x` 删除当前所在光标的字符
+- `:w` 保存文件(后面可以跟文件名)
+- `:q` 退出
+- `:q!` 强制退出
+- `:wq` 存盘并退出
+- ` dd` 删除当前行
+- `p` 粘黏剪贴板
+- `:help <command>` 要:q 退出
+
+很多时候我们记不住一些命令了,怎么办呢, 牢记一些几条金玉良言
+- 移动: 使用光标, 或者 h 向左, j 向下, k 向上, l 向右 (这个是键盘的方向,用惯了以后确实比小键盘的方向键更方便, 指头不用大范围移动了)
+- 退出 :q (quit)
+- 跳转到下一个主题: 将光标置于标签(例如 usr_01.txt) 上然后输入 CTL-]
+- 跳回: 键入 CRTL-T
+- 翻页: 键入CTRL-F/B
+
+## 插入模式[敲击一下键后会显示显示-- INSERT--的状态, 即插入模式]
+- `a`在光标后插入后(after)
+- `O`在当前行前插入一个新的行
+- `o`在当前行后插入一个新的行(小写o
+- `cw`替换从光标所爱在位置后刀一个单词结尾的字符(change word 的缩写)
+
+## 移动光标
+- `0` 数字零, 到行头
+- `^` 到本行第一个不是 blank 字符的位置
+- `$`到本行行尾
+- `g_`到本行最后一个不是 blank 的字符的位置
+- `/(pattern)`搜索 pattern 的字符串(按n 到下一个)
+- ``w` 词移动
+## 拷贝/黏贴
+- `P` 在当前位置之后黏贴
+- `p` 在当前我诶之之前黏贴
+- `yy` 拷贝当前行, 相当于 ddP
+
+## 撤销/重做
+- `u` undo
+- `<C-r> redo  
+
+>**Note: 上述所涉及到的<Esc>代表Escape键:<CR>代表Enter键；<D>代表Command键。
+Alt键可以使用<M-key>或<A-key>来表示。<C>代表Ctrl.
+对于组合键，可以用<C-Esc>代表Ctrl-Esc；使用<S-F1>表示Shift-F1.**
+
+## 技巧
+1. 打开 Vim之后，可以用 :split filename或 :vsplit filename 或 new filename 横向或纵向切割窗口，使用 ctrl + w 可以在个窗口之间跳转，使用 ctrl + 方向键 可以按照方向切换窗口。
+2. 用 Vim 打开一个文件，如果我们想实现所有文本行翻转，那么可以执行如下命令：:g/^/m 0
+3. 在 Vim 中统计文本行数和当前光标的位置，可以使用 ctrl + g，统计字节数，可以使用 g + ctrl + g
+4. 对文本进行简单排序：用 shift v 选中多行文本，输入 :!sort，看看效果如何
+5. 如果你想把当前目录下（包括子文件夹）所有后缀为 java 的文件中的 apache 替换成 eclipse，那么依次执行如下命令： 在当前目录下执行：
+```shell
+vim
+:n **/*.java
+:argdo %s/apache/eclipse/ge | update
+```
+
+---
+
+> 文章标题：<a href='{{ permalink }}' title='{{ title }}' >{{ title }}</a>
+> 文章作者：[Aphelou](http://www.metideas.com)
+> 文章链接：<a href='{{ permalink }}' title='{{ title }}' >{{ permalink }}</a>
+> 有问题或者建议欢迎在下方评论。欢迎转载、引用，但希望标明出处，感激不尽(●'◡'●)
