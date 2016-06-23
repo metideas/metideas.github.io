@@ -1,9 +1,11 @@
 ---
 title: {{ title }}
+subtitle:
 tags:
 categories:
 thumbnail:
 toc:
+english_tilte: 
 ---
 
 
